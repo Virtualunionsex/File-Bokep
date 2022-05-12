@@ -15,6 +15,8 @@ from config import (
     FORCE_SUB_CHANNEL,
     FORCE_SUB_GROUP,
     FORCE_SUB_CHANNEL1,
+    FORCE_SUB_CHANNEL2,
+    FORCE_SUB_CHANNEL3,
     FORCE_SUB_GROUP1,
     LOGGER,
     OWNER,
@@ -87,10 +89,42 @@ class Bot(Client):
                     "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
                 )
                 sys.exit()
+        if FORCE_SUB_CHANNEL2:
+            try:
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL2)
+                self.invitelink4 = link
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning(
+                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL1!"
+                )
+                self.LOGGER(__name__).warning(
+                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL1 dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
+                )
+                self.LOGGER(__name__).info(
+                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
+                )
+                sys.exit()
+        if FORCE_SUB_CHANNEL3:
+            try:
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL3)
+                self.invitelink5 = link
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning(
+                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL1!"
+                )
+                self.LOGGER(__name__).warning(
+                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL1 dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
+                )
+                self.LOGGER(__name__).info(
+                    "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"
+                )
+                sys.exit()                
         if FORCE_SUB_GROUP1:
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB_GROUP1)
-                self.invitelink4 = link
+                self.invitelink6 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
